@@ -29,9 +29,7 @@ ${contributing}
 The license used for the project is ${license}
 
 ## Questions
-Do you have any questions? You can reach me at  ${email}. You can also find me on github at [${github}](https://github.com/Buky-js) .
-
-`
+Do you have any questions? You can reach me at  ${email}. You can also find me on github at [${github}](https://github.com/Buky-js)`
 
 inquirer.prompt([
 {
