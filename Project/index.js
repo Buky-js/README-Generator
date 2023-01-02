@@ -1,9 +1,32 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateMarkdown = ({ projectTitle, description, installation, usage, contributing, license, email, github }) =>
-`# ${projectTitle}
+function showLicenseBadge(license) {
+  
+  let selectedLicense = '';
+  if(license === 'Apache License 2.0') {
+    selectedLicense = `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`
+  } else if (license === 'MIT License') {
+    selectedLicense = `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+  } else if (license === 'Mozilla Public License') {
+    selectedLicense = `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
+  } else if (license === 'The Unlicense') {
+    selectedLicense = `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`
+  } else if (license === 'GNU General Public License v3.0') {
+    selectedLicense = `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`
+  }else if (license === 'Boost Software License 1.0') {
+    selectedLicense = `[![License](https://img.shields.io/badge/License-Boost_1.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)`
+  }else {
+    selectedLicense = "";
+  }
+  return selectedLicense;
+};
 
+const generateMarkdown = ({ projectTitle, description, installation, usage, contributing, license, email, github }) =>
+`${showLicenseBadge(license)}
+# ${projectTitle}
+
+## Table Of Contents
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
@@ -29,7 +52,7 @@ ${contributing}
 The license used for the project is ${license}
 
 ## Questions
-Do you have any questions? You can reach me at  ${email}. You can also find me on github at [${github}](https://github.com/Buky-js)`
+Do you have any questions? You can reach me at  ${email}. You can also find me on github at [${github}](https://github.com/${github})`
 
 inquirer.prompt([
 {
