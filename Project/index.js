@@ -22,7 +22,7 @@ function showLicenseBadge(license) {
   return selectedLicense;
 };
 
-const generateMarkdown = ({ projectTitle, description, installation, usage, contributing, license, email, github }) =>
+const generateMarkdown = ({ projectTitle, description, installation, usage, tests, contributing, license, email, github }) =>
 `${showLicenseBadge(license)}
 # ${projectTitle}
 
@@ -30,13 +30,17 @@ const generateMarkdown = ({ projectTitle, description, installation, usage, cont
 * [Description](#description)
 * [Installation](#installation)
 * [Usage](#usage)
+* [Tests](#tests)
 * [Contributing](#contributing)
+* [URLs](#urls)
 * [License](#license)
 * [Questions](#questions)
 
 
 ## Description
 ${description}
+
+![Alt text](./img/readmeGenGif.gif)
 
 
 ## Installation
@@ -45,14 +49,22 @@ ${installation}
 ## Usage
 ${usage}
 
+## Tests
+${tests}
+
 ## Contributing
 ${contributing}
+
+## URLs
+The demo of the application can be found [here](https://youtube.com/watch?v=bNWwU00kBn8&si=EnSIkaIECMiOmarE)
+
+The URL of the GitHub repository containing the code is: https://github.com/Buky-js/README-Generator
 
 ## License
 The license used for the project is ${license}
 
 ## Questions
-Do you have any questions? You can reach me at  ${email}. You can also find me on github at [${github}](https://github.com/${github})`
+Do you have any questions? You can reach me at ${email}. You can also find me on github at [${github}](https://github.com/${github})`
 
 inquirer.prompt([
 {
@@ -82,6 +94,12 @@ inquirer.prompt([
       message: 'Select the license used',
       name: 'license',
       choices: ['Apache License 2.0', 'MIT License', 'Mozilla Public License', 'The Unlicense', 'GNU General Public License v3.0', 'Boost Software License 1.0']
+},
+{
+  type: 'input',
+    message: 'Is there any test information for this application? Press ENTER if its not applicable',
+    name: 'tests',
+    default: 'There is none at this time'
 },
 {
     type: 'input',
