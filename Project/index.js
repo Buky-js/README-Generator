@@ -56,7 +56,7 @@ ${tests}
 ${contributing}
 
 ## URLs
-The demo of the application can be found [here](https://youtube.com/watch?v=bNWwU00kBn8&si=EnSIkaIECMiOmarE)
+The demo of the application can be found [here](https://youtu.be/iTBkbaYOnDw)
 
 The URL of the GitHub repository containing the code is: https://github.com/Buky-js/README-Generator
 
